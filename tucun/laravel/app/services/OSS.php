@@ -13,8 +13,8 @@ class OSS {
     // 经典网络 or VPC
     private $networkType = '经典网络';
 
-    private $AccessKeyId = 'id';
-    private $AccessKeySecret = 'Secret';
+    private $AccessKeyId = 'LTAI5t5mSP7vBiti34VzpiZS';
+    private $AccessKeySecret = '3DArm9hdT2hT3cNFM0QOHVc0gYwxF0';
     private $ossClient;
     /**
      * 私有初始化 API，非 API，不用关注
@@ -40,7 +40,7 @@ class OSS {
      * @param  string 上传文件路径
      * @return \Aliyun\OSS\Models\PutObjectResult 上传是否成功
      */
-    public static function publicUpload($bucketName, $ossKey, $filePath, $options = [])
+    public static function publicUpload($bucketName, $ossKey, $filePath, $options = ['imagin/ipg'])
     {
         $oss = new OSS();
         $oss->ossClient->setBucket($bucketName);
