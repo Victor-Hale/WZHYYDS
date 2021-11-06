@@ -10,12 +10,12 @@ class LoginController extends Controller
     {
 
         $time = time() . '000';#毫秒时间戳
-        $s = hash_hmac('sha256', $time, '73mDFc0NZR7CkZwiy9WZdEkobo6YW_R2_JU3CEeoRaKKQPdmE3ETkoi83xLCFb_X', true);
+        $s = hash_hmac('sha256', $time, 'appsecret', true);
         $signature = base64_encode($s);
         $urlencode_signature = urlencode($signature);#签名
 
 
-        $remote_server = 'https://oapi.dingtalk.com/sns/getuserinfo_bycode?accessKey=dingoa8zw8llesz1rnrjq5&timestamp=' . $time . '&signature=' . $urlencode_signature;#地址组装
+        $remote_server = 'https://oapi.dingtalk.com/sns/getuserinfo_bycode?accessKey=appid&timestamp=' . $time . '&signature=' . $urlencode_signature;#地址组装
         $post_string = json_encode(['tmp_auth_code' => $_GET['code']]);#扫码获得的临时code
         $json = $this->PostCurlRequest($remote_server, $post_string);
         dd(($json));#获得用户相关信息
