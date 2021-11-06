@@ -27,9 +27,9 @@ class GetController extends Controller
 
         $c = new DingTalkClient(DingTalkConstant::$CALL_TYPE_OAPI, DingTalkConstant::$METHOD_GET, DingTalkConstant::$FORMAT_JSON);
         $req = new OapiGettokenRequest;
-        $req->setAppkey("dingahnwgw4qfxtxfoje");
-        $req->setAppsecret("iJtRg3GnTtjg4V66JrqohtQe5hBWKucXhabD6DfQ48RGgB72QH9AXM9gTzqjGeBt");
-        $resp = $c->execute($req, 'iJtRg3GnTtjg4V66JrqohtQe5hBWKucXhabD6DfQ48RGgB72QH9AXM9gTzqjGeBt', "https://oapi.dingtalk.com/gettoken");
+        $req->setAppkey("");
+        $req->setAppsecret("");
+        $resp = $c->execute($req, 'Appsecret', "https://oapi.dingtalk.com/gettoken");
         $token = $resp->access_token;
         return $token;
     }
